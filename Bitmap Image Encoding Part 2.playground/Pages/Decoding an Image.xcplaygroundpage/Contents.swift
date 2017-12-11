@@ -20,12 +20,26 @@ import PlaygroundSupport
 
 // Copy your encoded image string here...
 let encodedBitmap = """
-1,3,1
-4,1
-1,4
-0,1,3,1
-0,1,3,1
-1,4
+w20
+w20
+w3,b2,w2,b6,w2,b2,w3
+w2,b5,w6,b5,w2
+w1,b4,w5,b0,w5,b4,w1
+w1,b3,w6,b0,w6,b3,w1
+w1,b3,w2,b3,w2,b3,w2,b3,w1
+w2,b1,w2,b2,g1,b1,w2,b1,g1,b2,w2,b1,w2
+w2,b1,w2,b3,w4,b3,w2,b1,w2
+w2,b1,w1,p1,b2,w2,b2,w2,b2,p1,w1,b1,w2
+w2,b1,w1,p2,w3,b2,w3,p2,w1,b1,w2
+w2,b1,w7,w7,b1,w2
+w2,b1,w3,b8,w3,b1,w2
+w3,b3,e2,b1,e2,b1,e2,b3,w3
+w4,b1,e3,b1,e2,b1,e3,b1,w4
+w4,b1,e5,e5,b1,w4
+w5,b1,e8,b1,w5
+w6,b8,w6
+r1,w1,r1,w1,r1,w1,r1,w1,r1,w1,r1,w1,r1,w1,r1,w1,r1,w1,r1,w1
+r5,r5,r5,r5
 """
 
 // Make a canvas
@@ -43,6 +57,7 @@ let cellSize = 20
 
 // Keep track of current colour
 var currentColor = "white"
+
 
 // Start drawing at top of grid
 var y = canvas.height - cellSize - 2
@@ -87,6 +102,18 @@ for character in encodedBitmap {
         canvas.fillColor = Color.white
         currentColor = "white"
         
+    } else if character == "w" {
+        canvas.fillColor = Color.white
+    } else if character == "b" {
+        canvas.fillColor = Color.black
+    } else if character == "g" {
+        canvas.fillColor = Color.init(hue: 8, saturation: 6, brightness: 38, alpha: 75)
+    } else if character == "p" {
+        canvas.fillColor = Color.init(hue: 357, saturation: 49, brightness: 99, alpha: 65)
+    } else if character == "e"{
+        canvas.fillColor = Color.init(hue: 31, saturation: 40, brightness: 86, alpha: 50)
+    } else if character == "r"{
+        canvas.fillColor = Color.green
     } else {
         
         // Get the new number of pixels to draw
@@ -106,6 +133,8 @@ for character in encodedBitmap {
     }
     
 }
+
+
 
 /*:
  ### Check the results

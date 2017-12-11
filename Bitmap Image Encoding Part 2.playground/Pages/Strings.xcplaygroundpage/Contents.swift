@@ -54,8 +54,7 @@ print(detailedLocation)
  
  What does the \n character represent?
  */
-// It looks like the \n character makes the text... 
-// (finish this sentence)
+// It looks like the \n character makes the text start a new line of writing.
 
 /*:
  Now, **remember to commit and push your work**.
